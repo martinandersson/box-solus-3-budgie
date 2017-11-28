@@ -1,2 +1,3 @@
 # box-solus-3-budgie
-Vagrant box with Solus 3 Budgie.
+
+This page is a work in progress.
