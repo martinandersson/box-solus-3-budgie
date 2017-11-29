@@ -1,3 +1,4 @@
-# box-solus-3-budgie
+# A Vagrant box with Solus 3 Budgie
 
-This page is a work in progress.
+This page/project is a work in progress. Stay tuned for tons of useful
+information.
