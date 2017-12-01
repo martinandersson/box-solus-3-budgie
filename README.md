@@ -133,8 +133,8 @@ The password is `vagrant`.
 **This is important**, at least it was for me: Do not click the "Restart now"
 button!
 
-When I click the button the VM will hang/freeze. Use the bottom right controls
-to shut down the machine.
+When I click this button the VM will hang/freeze. Use the taskbar's shortcut
+control to shut down the machine.
 
 Yes, _shut down_ the machine, because in the next step we..
 
@@ -163,7 +163,7 @@ enable autologin. Autologin can be enabled through the Users app (you must first
 click the unlock icon in the top right corner before changes can be made to the
 user).
 
-After the first script completes, reboot.
+**After the first script completes, reboot.**
 
 Start Firefox. Type "about:preferences#privacy" into the address bar. Uncheck
 "Allow Firefox to install and run studies" (AMAZING!!!).
