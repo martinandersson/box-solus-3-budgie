@@ -24,16 +24,16 @@ a full office suite installed et cetera is hardly "minimal" nor am I convinced
 all use-cases of this barebones box is to derive yet another box for
 distribution as implied by the word "base". We are building a box. Period.</sub>
 
-## Steps to reproduce
+## Steps to reproduce the distributed box
 
 ### Create Virtual Machine
 
-Create a new VM instance. Select type `Linux`, version
+Create a new VM instance. Name it `solus-3-budgie`. Select type `Linux`, version
 `Linux 2.6 / 3.x / 4.x (64-bit)`. Set memory size to `2048 MB`.
 
 Notes
 
-- 2 GB is a "system requirement [...] for an optimal experience"
+- 2 GB of RAM is a "system requirement [...] for an optimal experience"
   <sup>[[source][4]]</sup>.
 
 ![Create VM][img-01]
@@ -42,9 +42,15 @@ Smack in a dynamically allocated disk with max size `40 GB`, type `VMDK`.
 
 Notes:
 
-- 40 GB seems to be the most commonly used limit.
-- VMDK is the final format used inside the exported box and was proven to occupy
-  slightly less space than first using a VDI and compact the disk before export.
+- 40 GB as limit seems to be what most people online use.
+- VMDK is the final format used inside the exported box. It is okay to create
+  the VM using another format. If so, then the disk will be converted to VMDK
+  during export (original disk file remains intact). At first, I actually
+  started out using a VDI which VirtualBox also knows how to "compact". But
+  despite compacting the disk prior to export, the disk space occupied by the
+  final box file was slightly larger compared to starting out with a VMDK. I
+  have not researched if starting out with one of the other formats could yield
+  further disk savings.
 
 ![Create VMDK disk][img-02]
 
@@ -66,8 +72,9 @@ Enable 3D acceleration.
 Notes:
 
 - As "strongly recommended", by Solus "for better performance"
-  <sup>[[source][5]]</sup>. Be wary that the usual fix for VirtualBox issues
-  related to graphics is to disable 3D acceleration =)
+  <sup>[[source][5]]</sup>. However, be wary that the usual fix for VirtualBox
+  issues related to graphics is to disable 3D acceleration =)
+- 2D video acceleration is for Windows guests only <sup>[[source][6]]</sup>.
 - No need to fiddle with the video memory; we shall invoke a bit of command line
   voodoo in the next step to bump it all the way to 256 MB - the GUI window
   pictured below only allows 128 MB.
@@ -177,13 +184,13 @@ Essentially, the scripts will prepare the VirtualBox box for export- and
 packaging into a Vagrant box. The scripts will not just setup passwordless sudo,
 but also setup stuff like an SSH server and VirtualBox's Guest Additions. Which
 version of Guest Additions to install is changeable by editing a variable at the
-top of [part two][6].
+top of [part two][7].
 
 ![Solus terminal][img-22]
 
 ### Package the box
 
-Download [this Vagrantfile][7] and put it in your working directory. Then do:
+Download [this Vagrantfile][8] and put it in your working directory. Then do:
 
     vagrant package --base solus-3-budgie --output solus-3-budgie.box --vagrantfile Vagrantfile
 
@@ -192,16 +199,17 @@ Notes:
 - If the machine is running, then Vagrant will attempt to shut it down before
   packaging starts.
 - Box description- and version is specified during the box-upload process on
-  [Vagrant's website][8].
+  [Vagrant's website][9].
 
 [1]: https://app.vagrantup.com/pristine/boxes/solus-3-budgie
 [2]: https://www.vagrantup.com/
 [3]: https://www.virtualbox.org/wiki/Downloads
 [4]: https://solus-project.com/download/
 [5]: https://solus-project.com/articles/software/virtualbox/en/
-[6]: https://github.com/martinanderssondotcom/box-solus-3-budgie/blob/master/prepare_box_part2.sh
-[7]: https://github.com/martinanderssondotcom/box-solus-3-budgie/blob/master/Vagrantfile
-[8]: https://app.vagrantup.com/boxes/new
+[6]: https://www.virtualbox.org/manual/ch04.html#guestadd-2d
+[7]: https://github.com/martinanderssondotcom/box-solus-3-budgie/blob/master/prepare_box_part2.sh
+[8]: https://github.com/martinanderssondotcom/box-solus-3-budgie/blob/master/Vagrantfile
+[9]: https://app.vagrantup.com/boxes/new
 
 [img-01]: screenshots/01-vb-create-vm.png
 [img-02]: screenshots/02-vb-create-vmdk-disk.png
