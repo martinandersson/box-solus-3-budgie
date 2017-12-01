@@ -41,7 +41,7 @@ chown -R vagrant:vagrant /home/vagrant/.ssh
 echo root:vagrant | chpasswd
 
 # Passwordless sudo
-echo $'\nvagrant ALL=(ALL) NOPASSWD: ALL'  >> /etc/sudoers
+echo $'\nvagrant ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 # Install an SSH server
 eopkg install openssh-server
