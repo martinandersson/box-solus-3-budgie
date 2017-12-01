@@ -91,7 +91,7 @@ Notes:
   `C:\Program Files\Oracle\VirtualBox`.
 - I have not been able to decipher what effect - if any - various different
   video memory sizes have. I certainly do not know why VirtualBox limit the GUI
-  to 128 MB.
+  control to 128 MB.
 
 ### Install OS
 
