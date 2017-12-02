@@ -1,17 +1,17 @@
 # A Vagrant box with Solus 3 Budgie
 
-The artifact of this project is a manually packaged `.box` file with Solus 3
-Budgie installed<sup>1</sup>.
+The artifact of this project is a manually packaged `.box` file with [Solus 3
+Budgie][1] installed<sup>1</sup>.
 
 Actually, the box is already packaged for you and distributed on
-[Vagrant's website][1].
+[Vagrant's website][2].
 
 _This GitHub project_ is used as an issue tracker as well as a notepad of how
 exactly the box was prepared. Except for setting up stuff like the Vagrant user
 account and Vagrant's SSH access, nothing else has been added and nothing has
 been removed to/from the Solus 3 Budgie distribution.
 
-Make sure you have [Vagrant][2] installed, [VirtualBox][3] installed together
+Make sure you have [Vagrant][3] installed, [VirtualBox][4] installed together
 with the Extension Pack, then, in theory, all you should have to do in order to
 get a Virtual Machine running with Solus 3 is:
 
@@ -34,7 +34,7 @@ Create a new VM instance. Name it `solus-3-budgie`. Select type `Linux`, version
 Notes
 
 - 2 GB of RAM is a "system requirement [...] for an optimal experience"
-  <sup>[[source][4]]</sup>.
+  <sup>[[source][5]]</sup>.
 
 ![Create VM][img-01]
 
@@ -72,9 +72,9 @@ Enable 3D acceleration.
 Notes:
 
 - As "strongly recommended", by Solus "for better performance"
-  <sup>[[source][5]]</sup>. However, be wary that the usual fix for VirtualBox
+  <sup>[[source][6]]</sup>. However, be wary that the usual fix for VirtualBox
   issues related to graphics is to disable 3D acceleration =)
-- 2D video acceleration is for Windows guests only <sup>[[source][6]]</sup>.
+- 2D video acceleration is for Windows guests only <sup>[[source][7]]</sup>.
 - No need to fiddle with the video memory; we shall invoke a bit of command line
   voodoo in the next step to bump it all the way to 256 MB - the GUI window
   pictured below only allows 128 MB.
@@ -95,7 +95,7 @@ Notes:
 
 ### Install OS
 
-Mount the OS installation's ISO file (grab it [here][4]). You do that by
+Mount the OS installation's ISO file (grab it [here][5]). You do that by
 clicking on the little CD icon to the right in the next picture. Then select
 "Choose Virtual Optical Disk File...".
 
@@ -184,13 +184,13 @@ Essentially, the scripts will prepare the VirtualBox box for export- and
 packaging into a Vagrant box. The scripts will not just setup passwordless sudo,
 but also setup stuff like an SSH server and VirtualBox's Guest Additions. Which
 version of Guest Additions to install is changeable by editing a variable at the
-top of [part two][7].
+top of [part two][8].
 
 ![Solus terminal][img-22]
 
 ### Package the box
 
-Download [this Vagrantfile][8] and put it in your working directory. Then do:
+Download [this Vagrantfile][9] and put it in your working directory. Then do:
 
     vagrant package --base solus-3-budgie --output solus-3-budgie.box --vagrantfile Vagrantfile
 
@@ -199,17 +199,18 @@ Notes:
 - If the machine is running, then Vagrant will attempt to shut it down before
   packaging starts.
 - Box description- and version is specified during the box-upload process on
-  [Vagrant's website][9].
+  [Vagrant's website][10].
 
-[1]: https://app.vagrantup.com/pristine/boxes/solus-3-budgie
-[2]: https://www.vagrantup.com/
-[3]: https://www.virtualbox.org/wiki/Downloads
-[4]: https://solus-project.com/download/
-[5]: https://solus-project.com/articles/software/virtualbox/en/
-[6]: https://www.virtualbox.org/manual/ch04.html#guestadd-2d
-[7]: https://github.com/martinanderssondotcom/box-solus-3-budgie/blob/master/prepare_box_part2.sh
-[8]: https://github.com/martinanderssondotcom/box-solus-3-budgie/blob/master/Vagrantfile
-[9]: https://app.vagrantup.com/boxes/new
+[1]: https://solus-project.com
+[2]: https://app.vagrantup.com/pristine/boxes/solus-3-budgie
+[3]: https://www.vagrantup.com/
+[4]: https://www.virtualbox.org/wiki/Downloads
+[5]: https://solus-project.com/download/
+[6]: https://solus-project.com/articles/software/virtualbox/en/
+[7]: https://www.virtualbox.org/manual/ch04.html#guestadd-2d
+[8]: https://github.com/martinanderssondotcom/box-solus-3-budgie/blob/master/prepare_box_part2.sh
+[9]: https://github.com/martinanderssondotcom/box-solus-3-budgie/blob/master/Vagrantfile
+[10]: https://app.vagrantup.com/boxes/new
 
 [img-01]: screenshots/01-vb-create-vm.png
 [img-02]: screenshots/02-vb-create-vmdk-disk.png
