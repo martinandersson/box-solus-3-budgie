@@ -54,7 +54,7 @@ Notes:
 
 ![Create VMDK disk][img-02]
 
-Enable a bidirectional clipboard.
+Open settings. Enable a bidirectional clipboard.
 
 Note:
 
@@ -67,7 +67,8 @@ Floppy disk?? There's nothing to be discussed here. Get rid of that shit.
 
 ![Disable boot-from floppy][img-04]
 
-Enable 3D acceleration.
+Enable 3D acceleration. Click "OK" to save the new settings and close the
+dialog.
 
 Notes:
 
