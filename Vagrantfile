@@ -4,7 +4,6 @@
 # Include this file when packaging the box.
 
 Vagrant.configure('2') do |cfg|
-  cfg.vm.define 'solus-3-budgie'
   # Partial remedy for missing Solus support
   # See: https://github.com/hashicorp/vagrant/issues/9225
   cfg.vm.guest = :linux
