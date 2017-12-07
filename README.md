@@ -16,7 +16,7 @@ with the Extension Pack, then, in theory, all you should have to do in order to
 get a Virtual Machine running with Solus 3 is:
 
     vagrant init pristine/solus-3-budgie
-    vagrant up 
+    vagrant up
 
 <sub><sup>1</sup> The semantical concept captured here is elsewhere described as
 a "minimal" and/or "base" box. I refrain from using either term since 3 GB with
